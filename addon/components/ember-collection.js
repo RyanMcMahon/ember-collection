@@ -59,6 +59,7 @@ export default Ember.Component.extend({
   },
 
   _needsRevalidate(){
+    if (this.get('isDestroyed') || this.get('isDestroying')) return;
     if (this._isGlimmer2()) {
       this.rerender();
     } else {
